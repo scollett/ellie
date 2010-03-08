@@ -1,0 +1,19 @@
+<% # Copyright (c) 2010 The Regents of the University of California -%>
+<% # Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php -%>
+<% # Author: SLC, Date: 2010/03/05 -%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title>Search</title>
+    <%= stylesheet_link_tag 'application' %>
+	<%= stylesheet_link_tag 'ellie' %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <%- end -%>
+    <%= yield %>
+  </body>
+</html>

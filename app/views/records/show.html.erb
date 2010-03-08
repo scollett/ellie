@@ -1,0 +1,92 @@
+<% # Copyright (c) 2010 The Regents of the University of California -%>
+<% # Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php -%>
+<% # Author: SLC, Date: 2010/03/05 -%>
+
+<% title "Record: #{params[:id]}", true%>
+<span style="font-size: 20px; font-weight: bold"><%= @record.bib.titles[0] %></span>
+<br/>
+<br/>
+<div style="font-size: 16px; font-family: Georgia,serif; font-style: italic">The bibliographic record...</div>
+<table class="details">
+	<tr>
+		<th scope="row">
+			Title
+	    </th>
+		<td>
+			<%= @record.bib.titles.join(' | ') %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			OCLC
+	    </th>
+		<td>
+			<% @record.bib.oclcs.each_with_index do |oclc, index| %><% if params[:id] != 'oclc:'+oclc %> <a href="<%= record_path('oclc:'+oclc) %>"><%= oclc -%></a><% else %><%= oclc -%><% end %><%= ", " unless index == @record.bib.oclcs.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			ISBN
+	    </th>
+		<td>
+			<% @record.bib.isbns.each_with_index do |isbn, index| %><% if params[:id] != 'isbn:'+isbn %> <a href="<%= record_path('isbn:'+isbn) %>"><%= isbn -%></a><% else %><%= isbn -%><% end %><%= ", " unless index == @record.bib.isbns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			ISSN
+	    </th>
+		<td>
+			<% @record.bib.issns.each_with_index do |issn, index| %><% if params[:id] != 'issn:'+issn %> <a href="<%= record_path('issn:'+issn) %>"><%= issn -%></a><% else %><%= issn -%><% end %><%= ", " unless index == @record.bib.issns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			LCCN
+	    </th>
+		<td>
+			<% @record.bib.lccns.each_with_index do |lccn, index| %><% if params[:id] != 'lccn:'+lccn %> <a href="<%= record_path('lccn:'+lccn) %>"><%= lccn -%></a><% else %><%= lccn -%><% end %><%= ", " unless index == @record.bib.lccns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Catalog ID
+	    </th>
+		<td>
+			<% if params[:id] != 'sysid:'+@record.bib.catalog_id %> <a href="<%= record_path('sysid:'+@record.bib.catalog_id) %>"><%= @record.bib.catalog_id -%></a><% else %><%= @record.bib.catalog_id -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Catalog URL
+	    </th>
+		<td>
+			<a href="<%= @record.bib.catalog_url %>" target="_blank"><%= @record.bib.catalog_url %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Worldcat URL
+	    </th>
+		<td>
+			<a href="<%= @record.bib.worldcat_url %>" target="_blank"><%= @record.bib.worldcat_url %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			No. of items
+	    </th>
+		<td>
+			<%= @record.bib.items.size %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Assoc. items
+	    </th>
+		<td>
+			<% @record.bib.items.each_with_index do |item, index| %>
+			<% if params[:id] != item[1].htid %> <a href="<%= item_path(item[1].htid)%>"><%= item[1].htid -%></a><% else %><%= item[1].htid -%><% end %><%= " (#{item[1].enumcron})" if item[1].enumcron -%><%= ", " unless index == @record.bib.items.size - 1 -%><% end %>
+		</td>
+	</tr>
+</table>

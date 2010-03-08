@@ -1,0 +1,19 @@
+<% # Copyright (c) 2010 The Regents of the University of California -%>
+<% # Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php -%>
+<% # Author: SLC, Date: 2010/03/05 -%>
+
+<% title "Search Ellie", false %>
+<div id="whitebox" align="center">
+
+<div style="width: 100%">
+<a href="/"><%= image_tag("ellie_small.png", :alt => "HathiTrust API Paste-Up") %></a>
+  <br/>
+  <br/>
+    <% form_tag('/search/run', :method => :get) do %>
+      <%= text_field_tag 'id', '', :size => '35' %>
+      <%= submit_tag 'Search' %><br/>
+    <% end %>
+  <span style="font-size: 70%"> HTID (e.g. mdp.39015030724549) or OCLC w/ prefix (e.g. oclc:16857172)</span>
+</div>
+</div>
+

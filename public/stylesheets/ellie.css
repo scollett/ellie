@@ -1,0 +1,74 @@
+/* Copyright (c) 2010 The Regents of the University of California
+  Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php
+  Author: SLC, Date: 2010/03/05 */
+
+#title {
+  color: #99CCFF;
+  width: 75%;
+  margin: 0 auto;
+  background-color: #333;
+  border: solid 1px black;
+  border-bottom: none;
+  padding: 10px 40px;
+  margin-top: 30px;
+}
+
+#heading {
+  color: #FFF;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+  position: relative;
+  width: 75%;
+  margin: 0 auto;
+  padding: 10px 40px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.details {
+	font-size: 12px;
+	width: 90%;
+	margin-top: 5px;
+}
+
+.id_data {
+	width: 15px;
+}
+th {
+	width: 100px;
+}
+
+th, td {
+    border: 1px solid #000;
+	border-right: 0px;
+	border-bottom: 0px;
+	padding: 3px;
+	text-align: left;
+
+}
+
+table {
+	border-spacing: 0px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	margin-bottom: 15px;
+}
+
+#whitebox {
+  width: 40%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  margin-top: 160px;
+  background-color: #FFF;
+  border: solid 1px black;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+}

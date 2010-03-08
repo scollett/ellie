@@ -1,0 +1,247 @@
+<% # Copyright (c) 2010 The Regents of the University of California -%>
+<% # Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php -%>
+<% # Author: SLC, Date: 2010/03/05 -%>
+
+<% title "Item: #{params[:id]}", true%>
+<span style="font-size: 20px; font-weight: bold"><%= @item.bib.titles[0] %></span> <span style="font-size: 16px;">(<%= @item.data.rights.attribute[:description].humanize %>)</span>
+<br/>
+<br/>
+<div style="font-size: 16px; font-family: Georgia,serif; font-style: italic">The item record...</div>
+<table class="details">
+	<tr>
+		<th scope="row">
+			HTID
+</th>
+		<td>
+			<%= @item.bib.items[params[:id]].htid %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Item URL
+	    </th>
+		<td>
+			<a href="<%= @item.bib.items[params[:id]].item_url %>" target="_blank"><%= @item.bib.items[params[:id]].item_url %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Enumeration
+	    </th>
+		<td>
+			<%= @item.bib.items[params[:id]].enumcron ? @item.bib.items[params[:id]].enumcron : "N/A" %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Orig
+	    </th>
+		<td>
+			<%= @item.bib.items[params[:id]].orig %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Meta
+	    </th>
+		<td>
+			<a href="http://services.hathitrust.org/api/htd/meta/<%= params[:id] %>" target="_blank">http://services.hathitrust.org/api/htd/meta/<%= params[:id] %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Structure
+	    </th>
+		<td>
+			<a href="http://services.hathitrust.org/api/htd/structure/<%= params[:id] %>" target="_blank">http://services.hathitrust.org/api/htd/structure/<%= params[:id] %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Aggregate
+	    </th>
+		<td>
+		    <% if @item.data.rights.attribute[:name] == 'pdus'%>
+			<a href="https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %>" target="_blank">https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %></a> (requires login)
+			<% else %>
+			Not available because of copyright
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Last Update
+	    </th>
+		<td>
+			<%= @item.bib.items[params[:id]].last_update %>
+		</td>
+	</tr>
+</table>
+<br/>
+<div style="font-size: 16px; font-family: Georgia,serif; font-style: italic">The associated bibliographic record...</div>
+<table class="details">
+	<tr>
+		<th scope="row">
+			Title
+	    </th>
+		<td>
+			<%= @item.bib.titles.join(' | ') %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			OCLC
+	    </th>
+		<td>
+			<% @item.bib.oclcs.each_with_index do |oclc, index| %><a href="<%= record_path('oclc:'+oclc) %>"><%= oclc -%></a><%= ", " unless index == @item.bib.oclcs.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			ISBN
+	    </th>
+		<td>
+			<% @item.bib.isbns.each_with_index do |isbn, index| %><a href="<%= record_path('isbn:'+isbn) %>" target="_blank"><%= isbn -%></a><%= ", " unless index == @item.bib.isbns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			ISSN
+	    </th>
+		<td>
+			<% @item.bib.issns.each_with_index do |issn, index| %><a href="<%= record_path('issn:'+issn) %>"><%= issn -%></a><%= ", " unless index == @item.bib.issns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			LCCN
+	    </th>
+		<td>
+			<% @item.bib.lccns.each_with_index do |lccn, index| %><a href="<%= record_path('lccn:'+lccn) %>"><%= lccn -%></a><%= ", " unless index == @item.bib.lccns.size - 1 -%><% end %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Catalog ID
+	    </th>
+		<td>
+			<a href="<%= record_path('sysid:'+@item.bib.catalog_id) %>"><%= @item.bib.catalog_id -%></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Catalog URL
+	    </th>
+		<td>
+			<a href="<%= @item.bib.catalog_url %>" target="_blank"><%= @item.bib.catalog_url %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Worldcat URL
+	    </th>
+		<td>
+			<a href="<%= @item.bib.worldcat_url %>" target="_blank"><%= @item.bib.worldcat_url %></a>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			No. of items
+	    </th>
+		<td>
+			<%= @item.bib.items.size %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Assoc. items
+	    </th>
+		<td>
+			<% @item.bib.items.each_with_index do |item, index| %>
+			<% if params[:id] != item[1].htid %> <a href="<%= item_path(item[1].htid)%>"><%= item[1].htid -%></a><% else %><%= item[1].htid -%><% end %><%= " (#{item[1].enumcron})" if item[1].enumcron -%><%= ", " unless index == @item.bib.items.size - 1 -%><% end %>
+		</td>
+	</tr>
+</table>
+<br/>
+<div style="font-size: 16px; font-family: Georgia,serif; font-style: italic">The rights details...</div>
+<table class="details">
+	<tr>
+		<th scope="row">
+			Namespace
+	    </th>
+		<td colspan='3'>
+			<%= @item.data.rights.namespace %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			ID
+	    </th>
+		<td colspan='3'>
+			<%= @item.data.rights.id %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Source
+	    </th>
+		<td class="id_data">
+			<%= @item.data.rights.source[:id] %>
+		</td>
+		<td colspan='2'>
+			<%= @item.data.rights.source[:description] %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			User
+	    </th>
+		<td colspan='3'>
+			<%= @item.data.rights.user %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Time
+	    </th>
+		<td colspan='3'>
+			<%= @item.data.rights.time %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Note
+	    </th>
+		<td colspan='3'>
+			<%= @item.data.rights.note %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Attribute
+	    </th>
+		<td class="id_data">
+			<%= @item.data.rights.attribute[:id] %>
+		</td>
+		<td>
+			<%= @item.data.rights.attribute[:name] %>
+		</td>
+		<td>
+			<%= @item.data.rights.attribute[:description] %>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			Reason
+	    </th>
+		<td class="id_data">
+			<%= @item.data.rights.reason[:id] %>
+		</td>
+		<td>
+			<%= @item.data.rights.reason[:name] %>
+		</td>
+		<td>
+			<%= @item.data.rights.reason[:description] %>
+		</td>
+	</tr>
+</table>

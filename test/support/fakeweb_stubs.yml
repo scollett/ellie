@@ -1,0 +1,19 @@
+htd_successful:
+    id: mdp.39015030724549
+    response: htd.meta.200.s1.a9.r1
+
+htd_not_found:
+    id: f34.39015030724549
+    response: htd.404    
+
+bib_success_with_item:
+    id: "mdp.39015030724549"
+    response: bib.item.rights.full
+
+bib_success_with_oclc:
+    id: "16857172"
+    response: bib.oclc.rights.full
+
+bib_not_found_with_item:
+    id: f34.39015030724549
+    response: bib.null.result
