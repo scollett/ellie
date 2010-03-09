@@ -10,18 +10,18 @@ Requirements:
 - Ruby 1.8.6 or 1.8.7
 - Rails 2.3.5
 
-1. Clone repository
+1) Clone repository
 
 git clone git://github.com/scollett/ellie.git
 
-2. Install required gems => httparty (0.5.2), Crack (0.1.6)
+2) Install required gems => httparty (0.5.2), Crack (0.1.6)
 
 cd ellie (or whatever you named it)
 rake gems:install
 
 Note: Additional gems required for test environment (not required to run app) => thoughtbot-shoulda (2.10.1), thoughtbot-factory_girl (1.2.2), fakeweb (1.2.8)
 
-3. Start up the web server
+3) Start up the web server
 
 script/server (will launch server at http://0.0.0.0:3000 by default)
 
@@ -29,20 +29,20 @@ script/server (will launch server at http://0.0.0.0:3000 by default)
 
 This is an easy application to deploy to Heroku (http://heroku.com).
 
-1. Unpack the gems for Heroku
+1) Unpack the gems for Heroku
 
 rake gems:unpack
 
-2. Commit those changes to the repository
+2) Commit those changes to the repository
 
 git add vendor/gems/*
 git commit -m "Unpacking gems for Heroku"
 
-3. Create an application (http://docs.heroku.com/quickstart)
+3) Create an application (http://docs.heroku.com/quickstart)
 
 heroku create
 
-4. Push your application (http://docs.heroku.com/quickstart)
+4) Push your application (http://docs.heroku.com/quickstart)
 
 git push heroku master
 
