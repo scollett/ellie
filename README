@@ -25,6 +25,27 @@ Note: Additional gems required for test environment (not required to run app) =>
 
 script/server (will launch server at http://0.0.0.0:3000 by default)
 
+== Application on Heroku
+
+This is an easy application to deploy to Heroku (http://heroku.com).
+
+1. Unpack the gems for Heroku
+
+rake gems:unpack
+
+2. Commit those changes to the repository
+
+git add vendor/gems/*
+git commit -m "Unpacking gems for Heroku"
+
+3. Create an application (http://docs.heroku.com/quickstart)
+
+heroku create
+
+4. Push your application (http://docs.heroku.com/quickstart)
+
+git push heroku master
+
 == Description of Contents (From Rails Documentation)
 
 app
