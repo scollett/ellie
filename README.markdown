@@ -1,10 +1,10 @@
-== Ellie, HathiTrust API Paste-Up
+# Ellie, HathiTrust API Paste-Up
 
-Ellie is a web application for looking up object information in the HathiTrust repository. The application queries the          HathiTrust APIs (Bibliographic API, Data API), and then displays the returned information about the object. That application maybe helpful for inspecting ingested objects, developing HathiTrust clients, and just for checking to see if an object is in the repository.
+Ellie is a web application for looking up object information in the HathiTrust repository. The application queries the HathiTrust APIs (Bibliographic API, Data API), and then displays the returned information about the object. That application maybe helpful for inspecting ingested objects, developing HathiTrust clients, and just for checking to see if an object is in the repository.
 
 The application uses the Ruby and Rails framework. Familiarity with Ruby and Rails would be helpful for setup.
 
-== Installation
+## Installation
 
 Requirements: 
 - Ruby 1.8.6 or 1.8.7
@@ -25,7 +25,7 @@ Note: Additional gems required for test environment (not required to run app) =>
 
 script/server (will launch server at http://0.0.0.0:3000 by default)
 
-== Application on Heroku
+## Application on Heroku
 
 This is an easy application to deploy to Heroku (http://heroku.com).
 
@@ -46,7 +46,7 @@ heroku create
 
 git push heroku master
 
-== Description of Contents (From Rails Documentation)
+## Description of Contents (From Rails Documentation)
 
 app
   Holds all the code that's specific to this particular application.
