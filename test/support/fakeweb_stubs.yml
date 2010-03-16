@@ -1,6 +1,10 @@
 htd_successful:
     id: mdp.39015030724549
     response: htd.meta.200.s1.a9.r1
+    
+htd_undefined_rights:
+    id: mdp.39015030724549
+    response: htd.meta.undefined_rights
 
 htd_not_found:
     id: f34.39015030724549

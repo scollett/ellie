@@ -3,7 +3,7 @@
 <% # Author: SLC, Date: 2010/03/05 -%>
 
 <% title "Item: #{params[:id]}", true%>
-<span style="font-size: 20px; font-weight: bold"><%= @item.bib.titles[0] %></span> <span style="font-size: 16px;">(<%= @item.data.rights.attribute[:description].humanize %>)</span>
+<span style="font-size: 20px; font-weight: bold"><%= @item.bib.titles[0] %></span> <% unless @item.data.rights.attribute.nil? %><span style="font-size: 16px;">(<%= @item.data.rights.attribute[:description].humanize %>)</span><% end -%>
 <br/>
 <br/>
 <div style="font-size: 16px; font-family: Georgia,serif; font-style: italic">The item record...</div>
@@ -61,7 +61,7 @@
 			Aggregate
 	    </th>
 		<td>
-		    <% if @item.data.rights.attribute[:name] == 'pdus'%>
+		    <% if !@item.data.rights.attribute.nil? && ['pdus','pd'].include?(@item.data.rights.attribute[:name])%>
 			<a href="https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %>" target="_blank">https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %></a> (requires login)
 			<% else %>
 			Not available because of copyright
@@ -186,10 +186,10 @@
 			Source
 	    </th>
 		<td class="id_data">
-			<%= @item.data.rights.source[:id] %>
+			<%= @item.data.rights.source.nil? ? @item.data.rights.raw["htd:source"] : @item.data.rights.source[:id] %>
 		</td>
 		<td colspan='2'>
-			<%= @item.data.rights.source[:description] %>
+			<%= @item.data.rights.source.nil? ? "N/A" : @item.data.rights.source[:description] %>
 		</td>
 	</tr>
 	<tr>
@@ -221,13 +221,13 @@
 			Attribute
 	    </th>
 		<td class="id_data">
-			<%= @item.data.rights.attribute[:id] %>
+			<%= @item.data.rights.attribute.nil? ? @item.data.rights.raw["htd:attr"] : @item.data.rights.attribute[:id] %>
 		</td>
 		<td>
-			<%= @item.data.rights.attribute[:name] %>
+			<%= @item.data.rights.attribute.nil? ? "N/A" : @item.data.rights.attribute[:name] %>
 		</td>
 		<td>
-			<%= @item.data.rights.attribute[:description] %>
+			<%= @item.data.rights.attribute.nil? ? "N/A" : @item.data.rights.attribute[:description] %>
 		</td>
 	</tr>
 	<tr>
@@ -235,13 +235,13 @@
 			Reason
 	    </th>
 		<td class="id_data">
-			<%= @item.data.rights.reason[:id] %>
+			<%= @item.data.rights.reason.nil? ? @item.data.rights.raw["htd:reason"] : @item.data.rights.reason[:id] %>
 		</td>
 		<td>
-			<%= @item.data.rights.reason[:name] %>
+			<%= @item.data.rights.reason.nil? ? "N/A" : @item.data.rights.reason[:name] %>
 		</td>
 		<td>
-			<%= @item.data.rights.reason[:description] %>
+			<%= @item.data.rights.reason.nil? ? "N/A" : @item.data.rights.reason[:description] %>
 		</td>
 	</tr>
 </table>

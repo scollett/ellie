@@ -3,7 +3,7 @@
 # Author: SLC, Date: 2010/03/05
 
 class HathiRights
-  attr_reader :note, :user, :time, :namespace, :source, :attribute, :id, :reason
+  attr_reader :note, :user, :time, :namespace, :source, :attribute, :id, :reason, :raw
   
   REASON = {
   '1' => {:id => '1', :name => 'bib', :description => 'bibliographically-derived by automatic processes'},
@@ -38,6 +38,7 @@ class HathiRights
 
   
   def initialize(rights)
+    @raw = rights
     @note = rights["htd:note"]
     @user = rights["htd:user"]
     @time = rights["htd:time"]
