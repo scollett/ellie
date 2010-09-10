@@ -14,6 +14,9 @@ class Record
   end
   
   def to_xml
-    @bib.marc_xml
+    formatter = REXML::Formatters::Pretty.new( 5 ) # indent by 5 spaces
+    output = String.new
+    formatter.write(REXML::Document.new(@bib.marc_xml), output)
+    return output
   end
 end

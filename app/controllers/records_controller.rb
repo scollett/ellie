@@ -5,5 +5,11 @@
 class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @record.to_xml }
+      format.marcxml { render :xml => @record.to_xml }
+    end
   end
 end

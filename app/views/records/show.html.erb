@@ -89,4 +89,12 @@
 			<% if params[:id] != item[1].htid %> <a href="<%= item_path(item[1].htid)%>"><%= item[1].htid -%></a><% else %><%= item[1].htid -%><% end %><%= " (#{item[1].enumcron})" if item[1].enumcron -%><%= ", " unless index == @record.bib.items.size - 1 -%><% end %>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			Marcxml
+	    </th>
+		<td>
+			<a href="<%= record_path('sysid:'+@record.bib.catalog_id+'.xml') %>" target="_blank"><%= @record.bib.catalog_id -%></a>
+		</td>
+	</tr>
 </table>
