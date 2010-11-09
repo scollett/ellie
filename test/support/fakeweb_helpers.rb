@@ -9,7 +9,7 @@ module FakewebHelpers
   STUBS = YAML.load_file("#{RAILS_ROOT}/test/support/fakeweb_stubs.yml").inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo} 
 
   def fakeweb_stub_htd_get(name)
-    fakeweb_stub_get('http://services.hathitrust.org:80/api/htd/meta/' + STUBS[name]['id'], STUBS[name]['response'])
+    fakeweb_stub_get('http://services.hathitrust.org:80/htd/meta/' + STUBS[name]['id'], STUBS[name]['response'])
   end
   
   def fakeweb_stub_bib_get(name, key)

@@ -8,7 +8,7 @@ class HathiData
   base_uri 'services.hathitrust.org'
   
   def self.find(handle)
-    result = HathiData.get("/api/htd/meta/#{handle}")
+    result = HathiData.get("/htd/meta/#{handle}")
     if result.code == 404
       raise RecordNotFound
     elsif result.code !=200
