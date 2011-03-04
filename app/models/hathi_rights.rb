@@ -16,12 +16,20 @@ class HathiRights
   '8' => {:id => '8', :name => 'nfi', :description => 'needs further investigation (copyright research partially complete; an ambiguous, unclear, or other time-consuming situation was encountered)'},
   '9' => {:id => '9', :name => 'cdpp', :description => 'title page or verso contain copyright date and/or place of publication information not in bib record'},
   '10' => {:id => '10', :name => 'cip', :description => 'condition review and in-print status research was conducted'},
-  '11' => {:id => '11', :name => 'unp', :description => 'unpublished work'}
+  '11' => {:id => '11', :name => 'unp', :description => 'unpublished work'},
+  '12' => {:id => '12', :name => 'gfv', :description => 'Google viewability set at VIEW_FULL'},
+  '13' => {:id => '13', :name => 'crms', :description => 'derived from multiple reviews in the Copyright Review Management System (CRMS) via an internal resolution policy; consult CRMS records for details'},
+  '14' => {:id => '14', :name => 'add', :description => 'author death date research was conducted or notification was received from authoritative source '}
   }
   
   SOURCE = {
   '1' => {:id => '1', :name => 'google', :description => 'Google'},
-  '2' => {:id => '2', :name => 'lit-dlps-dc', :description => 'Library IT, Digital Library Production Service, Digital Conversion'}
+  '2' => {:id => '2', :name => 'lit-dlps-dc', :description => 'Library IT, Digital Library Production Service, Digital Conversion'},
+  '3' => {:id => '3', :name => 'ump', :description => 'University of Michigan Press'},
+  '4' => {:id => '4', :name => 'ia', :description => 'Internet Archive'},
+  '5' => {:id => '5', :name => 'yale', :description => 'Yale University'},
+  '6' => {:id => '6', :name => 'umn', :description => 'University of Minnesota'},
+  '7' => {:id => '7', :name => 'mhs', :description => 'Minnesota Historical Society'}
   }
   
   ATTRIBUTES = {
@@ -33,7 +41,13 @@ class HathiRights
     '6' => {:id => '6', :name => 'umall', :type => 'access', :description => 'available to UM affiliates and walk-in patrons (all campuses)'},
     '7' => {:id => '7', :name => 'world', :type => 'access', :description => 'available to everyone in the world'},
     '8' => {:id => '8', :name => 'nobody', :type => 'nobody', :description => 'available to nobody; blocked for all users'},
-    '9' => {:id => '9', :name => 'pdus', :type => 'copyright', :description => 'public domain only when viewed in the US'}
+    '9' => {:id => '9', :name => 'pdus', :type => 'copyright', :description => 'public domain only when viewed in the US'},
+    '10' => {:id => '10', :name => 'cc-by', :type => 'copyright', :description => 'Creative Commons Attribution license'},
+    '11' => {:id => '11', :name => 'cc-by-nd', :type => 'copyright', :description => 'Creative Commons Attribution-NoDerivatives license'},
+    '12' => {:id => '12', :name => 'cc-by-nc-nd', :type => 'copyright', :description => 'Creative Commons Attribution-NonCommercial-NoDerivatives license'},
+    '13' => {:id => '13', :name => 'cc-by-nc', :type => 'copyright', :description => 'Creative Commons Attribution-NonCommercial license'},
+    '14' => {:id => '14', :name => 'cc-by-nc-sa', :type => 'copyright', :description => 'Creative Commons Attribution-NonCommercial-ShareAlike license'},
+    '15' => {:id => '15', :name => 'cc-by-sa', :type => 'copyright', :description => 'Creative Commons Attribution-ShareAlike license'}    
   }
 
   
