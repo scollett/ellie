@@ -8,7 +8,7 @@ class SearchController < ApplicationController
   end
   
   def run
-    item = /([a-z]|[0-9])+\.\$*([a-z]|[A-Z]|[0-9])+/
+    item = /([a-z]|[0-9])+\.\$*([a-z]|[A-Z]|[0-9]|\/|\:|\$)+/
     record = /(^oclc\:)|(^lccn\:)|(^isbn\:)|(^issn\:)|(^sysid\:)/
     if(item.match(params[:id].downcase))
       # with a item htid go direct to item page

@@ -5,7 +5,7 @@
 ActionController::Routing::Routes.draw do |map|
   
   # Items route: Custom restful action for showing Hathi Trust item.
-  map.connect 'items/:id', :controller => 'items', :action => 'show', :id => /([a-z]|[0-9]){3}\.\$*([a-z]|[A-Z]|[0-9]|\/|\:)+/, :method => :get
+  map.connect 'items/:id', :controller => 'items', :action => 'show', :id => /([a-z]|[0-9]){3,5}\.([a-z]|[A-Z]|[0-9]|\/|\:|\$)+/, :method => :get
   map.connect 'records/:id.:format', :controller => 'records', :action => 'show', :method => :get
   
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
