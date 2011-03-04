@@ -10,11 +10,11 @@ class SearchController < ApplicationController
   def run
     item = /([a-z]|[0-9])+\.\$*([a-z]|[A-Z]|[0-9]|\/|\:|\$)+/
     record = /(^oclc\:)|(^lccn\:)|(^isbn\:)|(^issn\:)|(^sysid\:)/
-    if(item.match(params[:id].downcase))
+    if(item.match(params[:id]))
       # with a item htid go direct to item page
       redirect_to item_path(params[:id].downcase)      
     elsif(record.match(params[:id]))
-        redirect_to record_path(params[:id].downcase) 
+      redirect_to record_path(params[:id].downcase) 
     else
       if params[:id].blank?
         flash.now[:error] = "Hmmmmmm. Please enter something for me to search on."
