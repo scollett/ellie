@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
+
+# Postgres (only used in production right now)
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -47,17 +49,21 @@ gem 'crack', "0.1.6"
 gem 'oauth'
 
 group :production do
- gem 'rails_12factor'
+  # use for heroku compatibilty
+  gem 'rails_12factor'
 end
 
 group :development do
+  # better error pages
   gem 'better_errors'
   gem 'binding_of_caller'
+  # local database for development
   gem 'sqlite3'
 end
 
 group :test do
+  # mock web requests in testing
   gem 'fakeweb'
-  # Use sqlite3 as the database for Active Record
+  # local database for testing
   gem 'sqlite3'
 end
