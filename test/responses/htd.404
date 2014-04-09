@@ -1,6 +1,15 @@
-HTTP/1.1 404 NOT FOUND
-Date: Thu, 11 Jun 2009 20:05:56 GMT
-Server: Apache/1.3.41 (Unix) mod_perl/1.30 mod_ssl/2.8.31 OpenSSL/0.9.8e-fips-rhel5
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=ISO-8859-1
+HTTP/1.1 404 Not Found
+Date: Fri, 28 Feb 2014 22:52:36 GMT
+Server: Apache/2.2.22 (Debian) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/5.4.4-14+deb7u7
+X-Choke-Now: 2014-02-28 17:52:36
+X-Choke-Allowed: 1
+X-Choke-Rate: 50 requests / 30 sec
+X-Choke-Delta: 367
+X-Choke-Credit: 183.5
+X-Choke-Max: 50
+X-Choke: requests
+Content-length: 52
+Content-Type: text/plain; charset=utf8
+Set-Cookie: NSC_mchspvq-iu=ffffffff8edd9ed145525d5f4f58455e445a4a423660;expires=Fri, 28-Feb-2014 23:02:36 GMT;path=/;httponly
 
+rights information not found for id=mdp.390150243333

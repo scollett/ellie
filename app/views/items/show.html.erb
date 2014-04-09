@@ -42,34 +42,6 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			Meta
-	    </th>
-		<td>
-			<a href="http://services.hathitrust.org/api/htd/meta/<%= params[:id] %>" target="_blank">http://services.hathitrust.org/api/htd/meta/<%= params[:id] %></a>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			Structure
-	    </th>
-		<td>
-			<a href="http://services.hathitrust.org/api/htd/structure/<%= params[:id] %>" target="_blank">http://services.hathitrust.org/api/htd/structure/<%= params[:id] %></a>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
-			Aggregate
-	    </th>
-		<td>
-		    <% if !@item.data.rights.attribute.nil? && ['pdus','pd'].include?(@item.data.rights.attribute[:name])%>
-			<a href="https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %>" target="_blank">https://services.hathitrust.org/api/htd/aggregate/<%= params[:id] %></a> (requires login)
-			<% else %>
-			Not available because of copyright
-			<% end %>
-		</td>
-	</tr>
-	<tr>
-		<th scope="row">
 			Last Update
 	    </th>
 		<td>

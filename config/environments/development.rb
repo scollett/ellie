@@ -1,21 +1,29 @@
-# Copyright (c) 2010 The Regents of the University of California
-# Released under New BSD License linked at http://www.opensource.org/licenses/bsd-license.php
-# Author: SLC, Date: 2010/03/05
+Ellie::Application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
 
-# Settings specified here will take precedence over those in config/environment.rb
+  # In the development environment your application's code is reloaded on
+  # every request. This slows down response time but is perfect for development
+  # since you don't have to restart the web server when you make code changes.
+  config.cache_classes = false
 
-# In the development environment your application's code is reloaded on
-# every request.  This slows down response time but is perfect for development
-# since you don't have to restart the webserver when you make code changes.
-config.cache_classes = false
+  # Do not eager load code on boot.
+  config.eager_load = false
 
-# Log error messages when you accidentally call methods on nil.
-config.whiny_nils = true
+  # Show full error reports and disable caching.
+  config.consider_all_requests_local       = true
+  config.action_controller.perform_caching = false
 
-# Show full error reports and disable caching
-config.action_controller.consider_all_requests_local = false
-config.action_view.debug_rjs                         = true
-config.action_controller.perform_caching             = false
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = false
 
-# Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+  # Print deprecation notices to the Rails logger.
+  config.active_support.deprecation = :log
+
+  # Raise an error on page load if there are pending migrations
+  config.active_record.migration_error = :page_load
+
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
+  config.assets.debug = true
+end

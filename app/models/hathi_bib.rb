@@ -3,7 +3,7 @@
 # Author: SLC, Date: 2010/03/05
 
 class HathiBib
-  attr_accessor :titles, :oclcs, :isbns, :issns, :lccns, :catalog_id, :catalog_url, :marc_xml, :items, :worldcat_url
+  attr_accessor :titles, :oclcs, :isbns, :issns, :lccns, :catalog_id, :catalog_url, :marcxml, :items, :worldcat_url
   include HTTParty
   base_uri 'catalog.hathitrust.org'
   
@@ -31,7 +31,7 @@ class HathiBib
     @lccns = data['records'][record_key]['lccns']
     @catalog_id = record_key
     @catalog_url = data['records'][record_key]['recordURL']
-    @marc_xml = data['records'][record_key]['marc-xml']
+    @marcxml = data['records'][record_key]['marc-xml']
     @items = {}
     data['items'].each do |item| 
       @items[item['htid']] = HathiItem.new(item)

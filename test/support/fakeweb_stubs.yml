@@ -18,6 +18,10 @@ bib_success_with_oclc:
     id: "16857172"
     response: bib.oclc.rights.full
 
+bib_failure_with_oclc:
+    id: "99999999999999"
+    response: bib.null.result
+
 bib_not_found_with_item:
     id: f34.39015030724549
     response: bib.null.result

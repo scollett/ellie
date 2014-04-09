@@ -14,6 +14,6 @@ class Item
   end
   
   def to_xml
-    @bib.marc_xml
+    @bib.marcxml
   end
 end

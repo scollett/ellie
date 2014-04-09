@@ -6,10 +6,9 @@
 <div id="whitebox" align="center">
 
 <div style="width: 100%">
-<a href="/"><%= image_tag("ellie_small.png", :alt => "HathiTrust API Paste-Up") %></a>
   <br/>
   <br/>
-    <% form_tag('/search/run', :method => :get) do %>
+    <%= form_tag('/search/run', :method => :get) do %>
       <%= text_field_tag 'id', '', :size => '35' %>
       <%= submit_tag 'Search' %><br/>
     <% end %>

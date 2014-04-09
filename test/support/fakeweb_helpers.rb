@@ -6,10 +6,10 @@ module FakewebHelpers
   FakeWeb.allow_net_connect = false  
   
   # Load stub data and convert string to symbols for easy test referencing
-  STUBS = YAML.load_file("#{RAILS_ROOT}/test/support/fakeweb_stubs.yml").inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo} 
+  STUBS = YAML.load_file("#{Rails.root}/test/support/fakeweb_stubs.yml").inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo} 
 
   def fakeweb_stub_htd_get(name)
-    fakeweb_stub_get('http://services.hathitrust.org:80/htd/meta/' + STUBS[name]['id'], STUBS[name]['response'])
+    fakeweb_stub_get(%r|https://babel.hathitrust.org/cgi/htd/volume/meta/#{STUBS[name]['id']}\?.*|, STUBS[name]['response'])
   end
   
   def fakeweb_stub_bib_get(name, key)
@@ -22,8 +22,8 @@ module FakewebHelpers
   
   # Turns a fixture file name into a full path  
   def response_file(filename)  
-    return '' if filename == ''  
-    File.expand_path(RAILS_ROOT + '/test/responses/' + filename)  
+    return '' if filename == ''
+    File.join(Rails.root, '/test/responses/', filename) 
   end  
   
   # Convenience methods for stubbing URLs to fixtures  
@@ -39,4 +39,3 @@ module FakewebHelpers
     FakeWeb.register_uri(:any, url, :response => response_file(filename))  
   end  
 end
-
