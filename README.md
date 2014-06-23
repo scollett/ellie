@@ -1,3 +1,5 @@
+[ ![Codeship Status for scollett/ellie](https://www.codeship.io/projects/7c0bf800-dd55-0131-feda-269b04e78202/status)](https://www.codeship.io/projects/24662)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
